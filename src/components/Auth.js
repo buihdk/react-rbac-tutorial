@@ -23,7 +23,7 @@ const Auth = props => {
 
   const initiateLogin = () => auth.authorize();
 
-  const logOut = () =>
+  const logout = () =>
     setState({
       authenticated: false,
       accessToken: '',
@@ -32,14 +32,14 @@ const Auth = props => {
       },
     });
 
-  const setSession = data =>
+  const setSession = authResult =>
     setState({
       authenticated: true,
-      accessToken: data.accessToken,
+      accessToken: authResult.accessToken,
       user: {
-        id: data.sub,
-        email: data.email,
-        role: data[AUTH_CONFIG.roleUrl],
+        id: authResult.idTokenPayload.sub,
+        email: authResult.idTokenPayload.email,
+        role: authResult.idTokenPayload[AUTH_CONFIG.roleUrl],
       },
     });
 
@@ -51,7 +51,7 @@ const Auth = props => {
         return;
       }
 
-      setSession(authResult.idTokenPayload);
+      setSession(authResult);
     });
   };
 
@@ -61,7 +61,7 @@ const Auth = props => {
         ...state,
         initiateLogin,
         handleAuthentication,
-        logOut,
+        logout,
       }}
     >
       {props.children}
