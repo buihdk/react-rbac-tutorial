@@ -12,7 +12,7 @@ const HomePage = () => (
         <Redirect to="/dashboard" />
       ) : (
         <div>
-          <h2>Welcome to React RBAC Tutorial.</h2>
+          <h2>Welcome to React RBAC Demo.</h2>
           <Login />
           <PostsList />
         </div>
