@@ -1,6 +1,6 @@
 # React RBAC Demo
 
-This project was bootstrapped with [Ejected Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with *ejected* [Create React App](https://github.com/buihdk/ejected-create-react-app).
 
 ## Core Dependencies
 Authentication - [Auth0](https://storybook.js.org/)<br/>
