@@ -1,14 +1,21 @@
-import React from "react";
+import React from 'react';
 
-import posts from "../posts";
-import { AuthConsumer } from "../authContext";
-import Can from "./Can";
+import posts from '../posts';
+import { AuthConsumer } from '../authContext';
+import Can from './Can';
 
 const PostsList = () => (
   <AuthConsumer>
     {({ user }) => (
       <div>
         <h2>Posts List</h2>
+        <Can
+          role={user.role}
+          perform="posts:create"
+          yes={() => (
+            <button className="btn btn-sm btn-success">Create Post</button>
+          )}
+        />
         <table className="table">
           <thead>
             <tr>
@@ -28,7 +35,7 @@ const PostsList = () => (
                     perform="posts:edit"
                     data={{
                       userId: user.id,
-                      postOwnerId: post.ownerId
+                      postOwnerId: post.ownerId,
                     }}
                     yes={() => (
                       <button className="btn btn-sm btn-warning">
