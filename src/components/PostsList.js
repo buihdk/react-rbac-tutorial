@@ -31,7 +31,7 @@ const PostsList = () => (
                       postOwnerId: post.ownerId
                     }}
                     yes={() => (
-                      <button className="btn btn-sm btn-default">
+                      <button className="btn btn-sm btn-warning">
                         Edit Post
                       </button>
                     )}
